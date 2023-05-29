@@ -4,12 +4,11 @@
 
 This repo is about creating a svg Logo Generator using the power of Nodes/js.
 
-This uses many npms like Jest and Requirer and requires me to use it's
-coding style to use on this work.
-
-This requires npm codes to be used
+This uses many npms like Jest and Requirer and requires learning
+and reading on npm style coding.
 
 To use the app.test, it is: npx jest app.test.js
+
 to use the index, it is: node index.js
 
 The app.test shows that there is one mistake, but that mistake does not effect the node code what so what

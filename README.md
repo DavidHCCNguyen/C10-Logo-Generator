@@ -26,6 +26,10 @@ This is the SVG
 
 ![This is what it will create in svg on browser](./Images/dvd.png)
 
+This is another example which will update each time you use the node index.js
+
+![SVG Image](./logo1.svg)
+
 Youtube Link
 
 [Youtube video of how to activate it](https://youtu.be/uELK94k_VCA)
@@ -33,7 +37,6 @@ Youtube Link
 Screencastify Link
 
 [Screencastify of how to activate it](https://watch.screencastify.com/v/dEFWtur5rvX6P5U7z856)
-
 
 # This is the code what will show in terminal when running app.test
 

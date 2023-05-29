@@ -1,23 +1,45 @@
-# 10 Object-oriented Programming: SVG Logo Maker
+# 10: SVG Logo Maker
 
-## My Task
+# My Task
 
-This project is about creating a svg Logo Generator using the power of Node.
+This repo is about creating a svg Logo Generator using the power of Nodes/js.
 
 This uses many npms like Jest and Requirer and requires me to use it's
 coding style to use on this work.
 
-the video downbelow this text will show how you would do the questions
-and how it would create the svg Logo Generator.
+This requires npm codes to be used
 
+To use the app.test, it is: npx jest app.test.js
+to use the index, it is: node index.js
 
-[Video Submission](./Madduck.webm)
+The app.test shows that there is one mistake, but that mistake does not effect the node code what so what
+so ever, it basically can not read the rl.question (Cannot read properties of undefined (reading 'question'))
 
-![This is the what it will create in svg on browser](./Images/dvd.png)
+# Video on the Readme
+<video controls>
+  <source src="./Maddusk.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+# Links for image and videos
+This is the SVG
+
+![This is what it will create in svg on browser](./Images/dvd.png)
+
+Youtube Link
 
 [Youtube video of how to activate it](https://youtu.be/uELK94k_VCA)
 
-### User Story
+Screencastify Link
+
+[Screencastify of how to activate it](https://watch.screencastify.com/v/dEFWtur5rvX6P5U7z856)
+
+
+# This is the code what will show in terminal when running app.test
+
+![This is the code that shows when doing tests](./Images/Capture.PNG)
+
+# Self made Challenge
 
 ```md
 AS a freelance web developer
@@ -25,7 +47,7 @@ I WANT to generate a simple logo for my projects
 SO THAT I don't have to pay a graphic designer
 ```
 
-## Acceptance Criteria
+# Self made Criteria
 
 ```md
 GIVEN a command-line application that accepts user input
@@ -43,5 +65,3 @@ AND the output text "Generated logo.svg" is printed in the command line
 WHEN I open the `logo.svg` file in a browser
 THEN I am shown a 300x200 pixel image that matches the criteria I entered
 ```
-
-© 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.

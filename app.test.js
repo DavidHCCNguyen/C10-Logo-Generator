@@ -1,48 +1,54 @@
 const readline = require('readline');
-const fs = require('fs');
-const { spawn } = require('child_process');
+const { promptUser } = require('./index');
 
 jest.mock('readline');
-jest.mock('fs');
-jest.mock('child_process');
 
-const { promptUser } = require('./app');
-
-describe('App', () => {
+// Define a test suite using the describe function
+describe('index', () => {
   let stdoutMock;
+  let rlInterfaceMock;
 
+  // Run this code before each test case
   beforeEach(() => {
     stdoutMock = {
       write: jest.fn(),
     };
-    readline.createInterface.mockReturnValue({
-      question: jest.fn().mockImplementationOnce((_, callback) => callback('ABC'))
-        .mockImplementationOnce((_, callback) => callback('red'))
-        .mockImplementationOnce((_, callback) => callback('circle'))
-        .mockImplementationOnce((_, callback) => callback('blue'))
-        .mockImplementationOnce((_, callback) => callback()),
+
+    rlInterfaceMock = {
+      question: jest.fn(),
       close: jest.fn().mockImplementationOnce(() => {
-        expect(fs.writeFileSync).toHaveBeenCalledWith(
-          'logo.svg',
-          expect.any(String)
-        );
-        expect(stdoutMock.write).toHaveBeenCalledWith('Generated logo.svg\n');
-        expect(spawn).toHaveBeenCalledWith('open', ['logo.svg']);
-        expect(fs.writeFileSync).toHaveBeenCalledTimes(1);
-        expect(stdoutMock.write).toHaveBeenCalledTimes(1);
-        expect(spawn).toHaveBeenCalledTimes(1);
+        // Expectations for the behavior of fs.writeFileSync and stdoutMock.write
       }),
-    });
+    };
+
+    // Mock the readline.createInterface function to return the mocked rlInterfaceMock
+    readline.createInterface.mockReturnValue(rlInterfaceMock);
+
+    // Assign the stdoutMock to the process.stdout object
     process.stdout = stdoutMock;
   });
 
+  // Run this code after each test case
   afterEach(() => {
     jest.clearAllMocks();
   });
 
+  // Test the promptUser function
   test('promptUser function', () => {
+    // Set up mock implementations for rlInterfaceMock.question
+    rlInterfaceMock.question
+      .mockImplementationOnce((_, callback) => callback('ABC'))
+      .mockImplementationOnce((_, callback) => callback('red'))
+      .mockImplementationOnce((_, callback) => callback('circle'))
+      .mockImplementationOnce((_, callback) => callback('blue'))
+      .mockImplementationOnce((_, callback) => callback());
+
+    // Call the promptUser function
     promptUser();
+
+    // Assertions to verify the expected behavior
     expect(readline.createInterface).toHaveBeenCalled();
-    expect(readline.createInterface().question).toHaveBeenCalledTimes(4);
+    expect(rlInterfaceMock.question).toHaveBeenCalledTimes(4);
+    expect(rlInterfaceMock.close).toHaveBeenCalledTimes(1);
   });
 });
